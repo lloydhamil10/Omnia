@@ -85,7 +85,7 @@ const handleSubmit = async (e) => {
 
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
-got 
+
     const response = await fetch('https://omnia.onrender.com', {
         method: 'POST',
         headers: {
