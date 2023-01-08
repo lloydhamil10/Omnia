@@ -17,14 +17,14 @@ app.use(express.json())
 
 app.get('/', async (req, res) => {
   res.status(200).send({
-    message: 'Hello from Omnia!'
+    message: 'Hello from CodeX!'
   })
 })
 
 app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
-console.log('Marker 1')
+
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `${prompt}`,
@@ -38,11 +38,11 @@ console.log('Marker 1')
     res.status(200).send({
       bot: response.data.choices[0].text
     });
-console.log('Marker 2')
+
   } catch (error) {
     console.error(error)
-    res.status(500).send(error || 'Something went wrong - Server');
+    res.status(500).send(error || 'Something went wrong');
   }
 })
 
-app.listen(5000, () => console.log('AI server started on Render'))
+app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
